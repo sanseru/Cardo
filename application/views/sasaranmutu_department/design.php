@@ -1,0 +1,13 @@
+	    <tr><td width='20'>Jan <?php echo form_error('jan') ?></td><td><input type="text" class="form-control" name="jan" id="jan" placeholder="Jan" value="<?php echo $jan; ?>" /></td></tr>
+	    <tr><td width='20'>Feb <?php echo form_error('feb') ?></td><td><input type="text" class="form-control" name="feb" id="feb" placeholder="Feb" value="<?php echo $feb; ?>" /></td></tr>
+	    <tr><td width='20'>Mar <?php echo form_error('mar') ?></td><td><input type="text" class="form-control" name="mar" id="mar" placeholder="Mar" value="<?php echo $mar; ?>" /></td></tr>
+	    <tr><td width='20'>Apr <?php echo form_error('apr') ?></td><td><input type="text" class="form-control" name="apr" id="apr" placeholder="Apr" value="<?php echo $apr; ?>" /></td></tr>
+	    <tr><td width='20'>May <?php echo form_error('may') ?></td><td><input type="text" class="form-control" name="may" id="may" placeholder="May" value="<?php echo $may; ?>" /></td></tr>
+	    <tr><td width='20'>Jun <?php echo form_error('jun') ?></td><td><input type="text" class="form-control" name="jun" id="jun" placeholder="Jun" value="<?php echo $jun; ?>" /></td></tr>
+	    <tr><td width='20'>Jul <?php echo form_error('jul') ?></td><td><input type="text" class="form-control" name="jul" id="jul" placeholder="Jul" value="<?php echo $jul; ?>" /></td></tr>
+	    <tr><td width='20'>Agug <?php echo form_error('agug') ?></td><td><input type="text" class="form-control" name="agug" id="agug" placeholder="Agug" value="<?php echo $agug; ?>" /></td></tr>
+	    <tr><td width='20'>Sep <?php echo form_error('sep') ?></td><td><input type="text" class="form-control" name="sep" id="sep" placeholder="Sep" value="<?php echo $sep; ?>" /></td></tr>
+	    <tr><td width='20'>Oct <?php echo form_error('oct') ?></td><td><input type="text" class="form-control" name="oct" id="oct" placeholder="Oct" value="<?php echo $oct; ?>" /></td></tr>
+	    <tr><td width='20'>Nov <?php echo form_error('nov') ?></td><td><input type="text" class="form-control" name="nov" id="nov" placeholder="Nov" value="<?php echo $nov; ?>" /></td></tr>
+	    <tr><td width='20'>Dec <?php echo form_error('dec') ?></td><td><input type="text" class="form-control" name="dec" id="dec" placeholder="Dec" value="<?php echo $dec; ?>" /></td></tr>
+	    <tr><td width='200'>Rata Rata <?php echo form_error('rata_rata') ?></td><td><input type="text" class="form-control" name="rata_rata" id="rata_rata" placeholder="Rata Rata" value="<?php echo $rata_rata; ?>" /></td></tr>

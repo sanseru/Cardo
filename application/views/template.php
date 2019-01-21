@@ -330,9 +330,16 @@
         <script src="<?php echo base_url() ?>assets/adminlte/dist/js/demo.js"></script>
         <!-- Select2 -->
         <script src="<?php echo base_url() ?>assets/adminlte/bower_components/select2/dist/js/select2.full.min.js"></script>
+        <!-- CK Editor -->
+        <script src="<?php echo base_url() ?>assets/adminlte/bower_components/ckeditor/ckeditor.js"></script>
         <!-- page script -->
         <script>
             $(function () {
+                // Replace the <textarea id="editor1"> with a CKEditor
+                // instance, using default configuration.
+                CKEDITOR.replace('proses_pdca')
+                CKEDITOR.replace('quality_assurance')
+                CKEDITOR.replace('quality_control')
                 $('.select2').select2()
                 $('#example1').DataTable()
                 $('#example2').DataTable({
