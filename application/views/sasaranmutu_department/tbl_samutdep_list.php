@@ -17,20 +17,20 @@
                 <tr>
                     <th width="30px">No</th>
 		    <th>Pihak Kepentingan</th>
-		    <th>Kbthn Hrpn</th>
-		    <th>Peluang Ancaman</th>
-		    <th>Main Proses</th>
+		    <th>Kebutuhan Harapan</th>
+		    <th>Peluang / Ancaman</th>
+		    <th>Key / Main Proses</th>
 		    <th>Sub Proses</th>
 		    <th>Sub Sub Proses</th>
 		    <th>Input</th>
-		    <th>Proses Pdca</th>
+		    <th>Proses & Siklus PDCA</th>
 		    <th>Quality Assurance</th>
 		    <th>Quality Control</th>
 		    <th>Output</th>
 		    <th>Penerima Output</th>
-		    <th>Samut</th>
-		    <th>Kpi</th>
-		    <th>Pic</th>
+		    <th>Sasaran Mutu</th>
+		    <th>KPI</th>
+		    <th>PIC</th>
 		    <th width="200px">Action</th>
                 </tr>
             </thead>

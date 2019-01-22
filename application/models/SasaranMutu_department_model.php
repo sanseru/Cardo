@@ -18,7 +18,9 @@ class SasaranMutu_department_model extends CI_Model
     // datatables
     function json() {
         $this->datatables->select('id_samutdept,pihak_kepentingan,kbthn_hrpn,peluang_ancaman,main_proses,sub_proses,sub_sub_proses,input,proses_pdca,quality_assurance,quality_control,output,penerima_output,samut,kpi,pic,jan,feb,mar,apr,may,jun,jul,aug,sep,oct,nov,dec,rata_rata,created_date,created_by,modify_date,modify_by');
-        $this->datatables->from('tbl_samutdep');
+		$this->datatables->from('tbl_samutdep');
+		$this->datatables->where('department', $this->session->userdata('id_users',TRUE));
+
         //add this line for join
         //$this->datatables->join('table2', 'tbl_samutdep.field = table2.field');
         $this->datatables->add_column('action', anchor(site_url('sasaranmutu_department/read/$1'),'<i class="fa fa-eye" aria-hidden="true"></i>', array('class' => 'btn btn-danger btn-sm'))." 

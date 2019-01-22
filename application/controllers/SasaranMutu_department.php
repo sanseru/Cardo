@@ -16,6 +16,7 @@ class SasaranMutu_department extends CI_Controller
 
     public function index()
     {
+
         $this->template->load('template','sasaranmutu_department/tbl_samutdep_list');
     } 
     
@@ -130,6 +131,9 @@ class SasaranMutu_department extends CI_Controller
 		'pic' => $this->input->post('pic',TRUE),
 		'created_date' =>$now,
 		'created_by' => $this->session->userdata('full_name',TRUE),
+		'department' => $this->session->userdata('id_users',TRUE),
+		'tahun_samut' => $this->input->post('tahun',TRUE),
+
 	    );
 
             $this->SasaranMutu_department_model->insert($data);
@@ -162,23 +166,10 @@ class SasaranMutu_department extends CI_Controller
 		'samut' => set_value('samut', $row->samut),
 		'kpi' => set_value('kpi', $row->kpi),
 		'pic' => set_value('pic', $row->pic),
-		'jan' => set_value('jan', $row->jan),
-		'feb' => set_value('feb', $row->feb),
-		'mar' => set_value('mar', $row->mar),
-		'apr' => set_value('apr', $row->apr),
-		'may' => set_value('may', $row->may),
-		'jun' => set_value('jun', $row->jun),
-		'jul' => set_value('jul', $row->jul),
-		'aug' => set_value('agug', $row->agug),
-		'sep' => set_value('sep', $row->sep),
-		'oct' => set_value('oct', $row->oct),
-		'nov' => set_value('nov', $row->nov),
-		'dec' => set_value('dec', $row->dec),
-		'rata_rata' => set_value('rata_rata', $row->rata_rata),
-		'created_date' => set_value('created_date', $row->created_date),
-		'created_by' => set_value('created_by', $row->created_by),
 		'modify_date' => set_value('modify_date', $row->modify_date),
 		'modify_by' => set_value('modify_by', $row->modify_by),
+		'tahun' => set_value('tahun_samut', $row->tahun_samut),
+
 	    );
             $this->template->load('template','sasaranmutu_department/tbl_samutdep_form', $data);
         } else {
@@ -189,6 +180,8 @@ class SasaranMutu_department extends CI_Controller
     
     public function update_action() 
     {
+		date_default_timezone_set('Asia/Jakarta');
+		$now = date('y-m-d H:i:s');
         $this->_rules();
 
         if ($this->form_validation->run() == FALSE) {
@@ -210,6 +203,40 @@ class SasaranMutu_department extends CI_Controller
 		'samut' => $this->input->post('samut',TRUE),
 		'kpi' => $this->input->post('kpi',TRUE),
 		'pic' => $this->input->post('pic',TRUE),
+		// 'jan' => $this->input->post('jan',TRUE),
+		// 'feb' => $this->input->post('feb',TRUE),
+		// 'mar' => $this->input->post('mar',TRUE),
+		// 'apr' => $this->input->post('apr',TRUE),
+		// 'may' => $this->input->post('may',TRUE),
+		// 'jun' => $this->input->post('jun',TRUE),
+		// 'jul' => $this->input->post('jul',TRUE),
+		// 'aug' => $this->input->post('agug',TRUE),
+		// 'sep' => $this->input->post('sep',TRUE),
+		// 'oct' => $this->input->post('oct',TRUE),
+		// 'nov' => $this->input->post('nov',TRUE),
+		// 'dec' => $this->input->post('dec',TRUE),
+		// 'rata_rata' => $this->input->post('rata_rata',TRUE),
+		'modify_date' => $now,
+		'modify_by' => $this->session->userdata('full_name',TRUE),
+		'department' => $this->session->userdata('id_users',TRUE),
+		'tahun_samut' => $this->input->post('tahun',TRUE),
+
+	    );
+
+            $this->SasaranMutu_department_model->update($this->input->post('id_samutdept', TRUE), $data);
+            $this->session->set_flashdata('message', 'Update Record Success');
+            redirect(site_url('sasaranmutu_department'));
+        }
+	}
+	
+	public function update_action_pencapaian() 
+    {
+		date_default_timezone_set('Asia/Jakarta');
+		$now = date('y-m-d H:i:s');
+        // $this->_rules();
+
+
+            $data = array(
 		'jan' => $this->input->post('jan',TRUE),
 		'feb' => $this->input->post('feb',TRUE),
 		'mar' => $this->input->post('mar',TRUE),
@@ -217,22 +244,21 @@ class SasaranMutu_department extends CI_Controller
 		'may' => $this->input->post('may',TRUE),
 		'jun' => $this->input->post('jun',TRUE),
 		'jul' => $this->input->post('jul',TRUE),
-		'agug' => $this->input->post('agug',TRUE),
+		'aug' => $this->input->post('agug',TRUE),
 		'sep' => $this->input->post('sep',TRUE),
 		'oct' => $this->input->post('oct',TRUE),
 		'nov' => $this->input->post('nov',TRUE),
 		'dec' => $this->input->post('dec',TRUE),
-		'rata_rata' => $this->input->post('rata_rata',TRUE),
-		'created_date' => $this->input->post('created_date',TRUE),
-		'created_by' => $this->input->post('created_by',TRUE),
-		'modify_date' => $this->input->post('modify_date',TRUE),
-		'modify_by' => $this->input->post('modify_by',TRUE),
+		// 'rata_rata' => $this->input->post('rata_rata',TRUE),
+		'modify_date' => $now,
+		'modify_by' => $this->session->userdata('full_name',TRUE),
+		'department' => $this->session->userdata('id_users',TRUE),
 	    );
 
-            $this->SasaranMutu_department_model->update($this->input->post('id_samutdept', TRUE), $data);
+            $this->SasaranMutu_department_model->update($this->input->post('id', TRUE), $data);
             $this->session->set_flashdata('message', 'Update Record Success');
-            redirect(site_url('sasaranmutu_department'));
-        }
+            redirect(site_url('sasaranmutu_department/read/'.$this->input->post('id', TRUE)));
+        
     }
     
     public function delete($id) 
@@ -370,7 +396,7 @@ class SasaranMutu_department extends CI_Controller
 	    xlsWriteNumber($tablebody, $kolombody++, $data->may);
 	    xlsWriteNumber($tablebody, $kolombody++, $data->jun);
 	    xlsWriteNumber($tablebody, $kolombody++, $data->jul);
-	    xlsWriteNumber($tablebody, $kolombody++, $data->agug);
+	    xlsWriteNumber($tablebody, $kolombody++, $data->aug);
 	    xlsWriteNumber($tablebody, $kolombody++, $data->sep);
 	    xlsWriteNumber($tablebody, $kolombody++, $data->oct);
 	    xlsWriteNumber($tablebody, $kolombody++, $data->nov);
