@@ -17,20 +17,35 @@ class SasaranMutu_department extends CI_Controller
     public function index()
     {
 
-        $this->template->load('template','sasaranmutu_department/tbl_samutdep_list');
+		// $this->template->load('template','sasaranmutu_department/tbl_samutdep_list');
+        $this->template->load('template','sasaranmutu_department/design');
+		
     } 
     
-    public function json() {
+    public function json($id) {
         header('Content-Type: application/json');
-        echo $this->SasaranMutu_department_model->json();
+        echo $this->SasaranMutu_department_model->json($id);
 	}
 	
 	public function json_2($id) {
 
         header('Content-Type: application/json');
         echo $this->SasaranMutu_department_model->json_2($id);
+	}
+	public function json_3() {
+
+        header('Content-Type: application/json');
+        echo $this->SasaranMutu_department_model->json_3();
     }
 
+	public function view_samutdep(){
+
+		$data = array(
+			'id'=>$this->uri->segment(3),
+			);
+		$this->template->load('template','sasaranmutu_department/tbl_samutdep_list',$data);
+
+	}
     public function read($id) 
     {
         $row = $this->SasaranMutu_department_model->get_by_id($id);

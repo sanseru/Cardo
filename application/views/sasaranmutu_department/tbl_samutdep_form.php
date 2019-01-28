@@ -9,6 +9,11 @@
             
 			<table class='table table-bordered>'        
 
+<?php if(empty($tahun)){
+	$tahun="";
+}else{
+	$tahun=$tahun;
+}?>
 			<tr><td>Tahun</td><td><?php echo cmb_dinamis('tahun', 'tbl_tahun_qhse', 'tahun', 'id_thn',$tahun) ?></td></tr>
 	    <tr><td width='200'>Pihak Berkepentingan <?php echo form_error('pihak_kepentingan') ?></td><td><input type="text" class="form-control" name="pihak_kepentingan" id="pihak_kepentingan" placeholder="Pihak Kepentingan" value="<?php echo $pihak_kepentingan; ?>" /></td></tr>
 	    <tr><td width='200'>Kebutuhan & Harapan <?php echo form_error('kbthn_hrpn') ?></td><td><input type="text" class="form-control" name="kbthn_hrpn" id="kbthn_hrpn" placeholder="Kbthn Hrpn" value="<?php echo $kbthn_hrpn; ?>" /></td></tr>

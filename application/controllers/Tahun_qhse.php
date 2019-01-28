@@ -51,7 +51,7 @@ class Tahun_qhse extends CI_Controller
         if ($row) {
             $data = array(
 		'id_thn' => $row->id_thn,
-		'Tahun' => $row->Tahun,
+		'tahun' => $row->tahun,
 		'created_date' => $row->created_date,
 		'created_by' => $row->created_by,
 		'created_id' => $row->created_id,
@@ -108,7 +108,7 @@ class Tahun_qhse extends CI_Controller
                 'button' => 'Update',
                 'action' => site_url('tahun_qhse/update_action'),
 		'id_thn' => set_value('id_thn', $row->id_thn),
-		'tahun' => set_value('tahun', $row->Tahun),
+		'tahun' => set_value('tahun', $row->tahun),
 		'created_date' => set_value('created_date', $row->created_date),
 		'created_by' => set_value('created_by', $row->created_by),
 		'created_id' => set_value('created_id', $row->created_id),

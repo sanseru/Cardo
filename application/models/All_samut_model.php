@@ -3,7 +3,7 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class SasaranMutu_department_model extends CI_Model
+class All_samut_model extends CI_Model
 {
 
     public $table = 'tbl_samutdep';
@@ -16,44 +16,11 @@ class SasaranMutu_department_model extends CI_Model
     }
 
     // datatables
-    function json($id) {
-        $this->datatables->select('id_samutdept,pihak_kepentingan,kbthn_hrpn,peluang_ancaman,main_proses,sub_proses,sub_sub_proses,input,proses_pdca,quality_assurance,quality_control,output,penerima_output,samut,kpi,pic,jan,feb,mar,apr,may,jun,jul,aug,sep,oct,nov,dec,rata_rata,created_date,created_by,modify_date,modify_by');
-		$this->datatables->from('tbl_samutdep');
-		$this->datatables->where('tahun_samut', $id);
-		$this->datatables->where('department', $this->session->userdata('id_users',TRUE));
-
+    function json() {
+        $this->datatables->select('id_samutdept,pihak_kepentingan,kbthn_hrpn,peluang_ancaman,main_proses,sub_proses,sub_sub_proses,input,proses_pdca,quality_assurance,quality_control,output,penerima_output,samut,kpi,pic,jan,feb,mar,apr,may,jun,jul,aug,sep,oct,nov,dec,rata_rata,created_date,created_by,modify_date,modify_by,department,tahun_samut');
+        $this->datatables->from('tbl_samutdep');
         //add this line for join
         //$this->datatables->join('table2', 'tbl_samutdep.field = table2.field');
-        $this->datatables->add_column('action', anchor(site_url('sasaranmutu_department/read/$1'),'<i class="fa fa-eye" aria-hidden="true"></i>', array('class' => 'btn btn-danger btn-sm'))." 
-            ".anchor(site_url('sasaranmutu_department/update/$1'),'<i class="fa fa-pencil-square-o" aria-hidden="true"></i>', array('class' => 'btn btn-danger btn-sm'))." 
-                ".anchor(site_url('sasaranmutu_department/delete/$1'),'<i class="fa fa-trash-o" aria-hidden="true"></i>','class="btn btn-danger btn-sm" onclick="javasciprt: return confirm(\'Are You Sure ?\')"'), 'id_samutdept');
-        return $this->datatables->generate();
-	}
-	
-	function json_2($id) {
-        $this->datatables->select('id_samutdept,pihak_kepentingan,kbthn_hrpn,peluang_ancaman,main_proses,sub_proses,sub_sub_proses,input,proses_pdca,quality_assurance,quality_control,output,penerima_output,samut,kpi,pic,jan,feb,mar,apr,may,jun,jul,aug,sep,oct,nov,dec,rata_rata,created_date,created_by,modify_date,modify_by');
-		$this->datatables->from('tbl_samutdep');
-		$this->datatables->where('id_samutdept', $id);
-
-        //add this line for join
-        //$this->datatables->join('table2', 'tbl_samutdep.field = table2.field');
-        // $this->datatables->add_column('action', anchor(site_url('sasaranmutu_department/read/$1'),'<i class="fa fa-eye" aria-hidden="true"></i>', array('class' => 'btn btn-danger btn-sm'))." 
-        //     ".anchor(site_url('sasaranmutu_department/update/$1'),'<i class="fa fa-pencil-square-o" aria-hidden="true"></i>', array('class' => 'btn btn-danger btn-sm'))." 
-        //         ".anchor(site_url('sasaranmutu_department/delete/$1'),'<i class="fa fa-trash-o" aria-hidden="true"></i>','class="btn btn-danger btn-sm" onclick="javasciprt: return confirm(\'Are You Sure ?\')"'), 'id_samutdept');
-        return $this->datatables->generate();
-	}
-	
-	function json_3() {
-        $this->datatables->select('id_thn,tahun,jan,feb,mar,apr,may,jun,jul,aug,sep,oct,nov,dec');
-		$this->datatables->from('tbl_tahun_qhse');
-        $this->datatables->join('tbl_samutdep', 'tbl_tahun_qhse.id_thn = tbl_samutdep.tahun_samut','left');
-		$this->datatables->edit_column('client_v', '<a href="SasaranMutu_department/view_samutdep/$1">$2</a>', 'id_thn, tahun');
-
-        //add this line for join
-        //$this->datatables->join('table2', 'tbl_samutdep.field = table2.field');
-        // $this->datatables->add_column('action', anchor(site_url('sasaranmutu_department/read/$1'),'<i class="fa fa-eye" aria-hidden="true"></i>', array('class' => 'btn btn-danger btn-sm'))." 
-        //     ".anchor(site_url('sasaranmutu_department/update/$1'),'<i class="fa fa-pencil-square-o" aria-hidden="true"></i>', array('class' => 'btn btn-danger btn-sm'))." 
-        //         ".anchor(site_url('sasaranmutu_department/delete/$1'),'<i class="fa fa-trash-o" aria-hidden="true"></i>','class="btn btn-danger btn-sm" onclick="javasciprt: return confirm(\'Are You Sure ?\')"'), 'id_samutdept');
         return $this->datatables->generate();
     }
 
@@ -96,7 +63,7 @@ class SasaranMutu_department_model extends CI_Model
 	$this->db->or_like('may', $q);
 	$this->db->or_like('jun', $q);
 	$this->db->or_like('jul', $q);
-	$this->db->or_like('agug', $q);
+	$this->db->or_like('aug', $q);
 	$this->db->or_like('sep', $q);
 	$this->db->or_like('oct', $q);
 	$this->db->or_like('nov', $q);
@@ -106,6 +73,8 @@ class SasaranMutu_department_model extends CI_Model
 	$this->db->or_like('created_by', $q);
 	$this->db->or_like('modify_date', $q);
 	$this->db->or_like('modify_by', $q);
+	$this->db->or_like('department', $q);
+	$this->db->or_like('tahun_samut', $q);
 	$this->db->from($this->table);
         return $this->db->count_all_results();
     }
@@ -136,7 +105,7 @@ class SasaranMutu_department_model extends CI_Model
 	$this->db->or_like('may', $q);
 	$this->db->or_like('jun', $q);
 	$this->db->or_like('jul', $q);
-	$this->db->or_like('agug', $q);
+	$this->db->or_like('aug', $q);
 	$this->db->or_like('sep', $q);
 	$this->db->or_like('oct', $q);
 	$this->db->or_like('nov', $q);
@@ -146,6 +115,8 @@ class SasaranMutu_department_model extends CI_Model
 	$this->db->or_like('created_by', $q);
 	$this->db->or_like('modify_date', $q);
 	$this->db->or_like('modify_by', $q);
+	$this->db->or_like('department', $q);
+	$this->db->or_like('tahun_samut', $q);
 	$this->db->limit($limit, $start);
         return $this->db->get($this->table)->result();
     }
@@ -172,8 +143,8 @@ class SasaranMutu_department_model extends CI_Model
 
 }
 
-/* End of file SasaranMutu_department_model.php */
-/* Location: ./application/models/SasaranMutu_department_model.php */
+/* End of file All_samut_model.php */
+/* Location: ./application/models/All_samut_model.php */
 /* Please DO NOT modify this information : */
-/* Generated by Harviacode Codeigniter CRUD Generator 2019-01-21 04:14:14 */
+/* Generated by Harviacode Codeigniter CRUD Generator 2019-01-28 03:07:16 */
 /* http://harviacode.com */
