@@ -255,8 +255,51 @@
                         {
                             "data" : null,
                             "render" : function (data, type, full){
+                                var jumlah=0;
+								if(parseInt(full['jan'])!==0){
+									jumlah++;
+								}
+								if(parseInt(full['feb'])!==0){
+									jumlah++;
+								}
+								if(parseInt(full['mar'])!==0){
+									jumlah++;
+								}
+								if(parseInt(full['apr'])!==0){
+									jumlah++;
+								}
+								if(parseInt(full['may'])!==0){
+									jumlah++;
+								}
+								if(parseInt(full['jun'])!==0){
+									jumlah++;
+								}
+								if(parseInt(full['jul'])!==0){
+									jumlah++;
+								}
+								if(parseInt(full['aug'])!==0){
+									jumlah++;
+								}
+								if(parseInt(full['sep'])!==0){
+									jumlah++;
+								}
+								if(parseInt(full['oct'])!==0){
+									jumlah++;
+								}
+								if(parseInt(full['nov'])!==0){
+									jumlah++;
+								}
+								if(parseInt(full['dec'])!==0){
+									jumlah++;
+								}
                                 var rata= parseInt(full['jan'])+parseInt(full['feb'])+parseInt(full['mar'])+parseInt(full['apr'])+parseInt(full['may'])+parseInt(full['jun'])+parseInt(full['jul'])+parseInt(full['aug'])+parseInt(full['sep'])+parseInt(full['oct'])+parseInt(full['nov'])+parseInt(full['dec']);
-                                var rata_rata= rata/12;
+                                var rata_rata= rata/jumlah;
+                                var jumlah = 0;
+                                if(isNaN(rata_rata)){
+                                    rata_rata= "Belum ada Pencapaian";
+                                }else{
+                                    rata_rata= rata_rata+' %'
+                                }
                                 return rata_rata;
                             }
 

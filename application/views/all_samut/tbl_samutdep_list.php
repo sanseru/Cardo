@@ -38,6 +38,7 @@
             <thead>
                 <tr>
                     <th width="30px">No</th>
+		    <th>Tahun</th>
 		    <th>Pihak Kepentingan</th>
 		    <th>Kbthn Hrpn</th>
 		    <th>Peluang Ancaman</th>
@@ -120,8 +121,11 @@
                         {
                             "data": "id_samutdept",
                             "orderable": false
-                        },{"data": "pihak_kepentingan"},{"data": "kbthn_hrpn","bSearchable": false},{"data": "peluang_ancaman","bSearchable": false},{"data": "main_proses","bSearchable": false},{"data": "sub_proses","bSearchable": false},{"data": "sub_sub_proses","bSearchable": false},{"data": "input","bSearchable": false},{"data": "proses_pdca","bSearchable": false},{"data": "quality_assurance","bSearchable": false},{"data": "quality_control","bSearchable": false},{"data": "output","bSearchable": false},{"data": "penerima_output","bSearchable": false},{"data": "samut","bSearchable": false},{"data": "kpi","bSearchable": false},{"data": "pic","bSearchable": false},{"data": "jan","bSearchable": false},{"data": "feb","bSearchable": false},{"data": "mar","bSearchable": false},{"data": "apr","bSearchable": false},{"data": "may","bSearchable": false},{"data": "jun","bSearchable": false},{"data": "jul","bSearchable": false},{"data": "aug","bSearchable": false},{"data": "sep","bSearchable": false},{"data": "oct","bSearchable": false},{"data": "nov","bSearchable": false},{"data": "dec","bSearchable": false},{"data": "rata_rata","bSearchable": false}
+                        },{"data": "tahun","visible": false},{"data": "pihak_kepentingan","bSearchable": false},{"data": "kbthn_hrpn","bSearchable": false},{"data": "peluang_ancaman","bSearchable": false},{"data": "main_proses","bSearchable": false},{"data": "sub_proses","bSearchable": false},{"data": "sub_sub_proses","bSearchable": false},{"data": "input","bSearchable": false},{"data": "proses_pdca","bSearchable": false},{"data": "quality_assurance","bSearchable": false},{"data": "quality_control","bSearchable": false},{"data": "output","bSearchable": false},{"data": "penerima_output","bSearchable": false},{"data": "samut","bSearchable": false},{"data": "kpi","bSearchable": false},{"data": "pic","bSearchable": false},{"data": "jan","bSearchable": false},{"data": "feb","bSearchable": false},{"data": "mar","bSearchable": false},{"data": "apr","bSearchable": false},{"data": "may","bSearchable": false},{"data": "jun","bSearchable": false},{"data": "jul","bSearchable": false},{"data": "aug","bSearchable": false},{"data": "sep","bSearchable": false},{"data": "oct","bSearchable": false},{"data": "nov","bSearchable": false},{"data": "dec","bSearchable": false},{"data": "rata_rata","bSearchable": false}
                     ],
+                    "oLanguage": {
+                    "sSearch": "Cari Tahun"
+                    },
                     order: [[0, 'desc']],
                     rowCallback: function(row, data, iDisplayIndex) {
                         var info = this.fnPagingInfo();

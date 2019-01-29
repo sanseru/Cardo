@@ -249,8 +249,21 @@ class SasaranMutu_department extends CI_Controller
 		date_default_timezone_set('Asia/Jakarta');
 		$now = date('y-m-d H:i:s');
         // $this->_rules();
+		$januari =$this->input->post('jan',TRUE);
+		$februari =$this->input->post('feb',TRUE);
+		$maret =$this->input->post('mar',TRUE);
+		$april =$this->input->post('apr',TRUE);
+		$mei =$this->input->post('may',TRUE);
+		$juni =$this->input->post('jun',TRUE);
+		$july =$this->input->post('jul',TRUE);
+		$agustus =$this->input->post('aug',TRUE);
+		$september =$this->input->post('sep',TRUE);
+		$oktober =$this->input->post('oct',TRUE);
+		$november =$this->input->post('nov',TRUE);
+		$desember =$this->input->post('dec',TRUE);
 
-
+		$jumlah = number_format((($januari+$februari+$maret+$april+$mei+$juni+$july+$agustus+$september+$oktober+$november+$desember)/12),3);
+		// $hasil = $jumlah/12;
             $data = array(
 		'jan' => $this->input->post('jan',TRUE),
 		'feb' => $this->input->post('feb',TRUE),
@@ -259,12 +272,12 @@ class SasaranMutu_department extends CI_Controller
 		'may' => $this->input->post('may',TRUE),
 		'jun' => $this->input->post('jun',TRUE),
 		'jul' => $this->input->post('jul',TRUE),
-		'aug' => $this->input->post('agug',TRUE),
+		'aug' => $this->input->post('aug',TRUE),
 		'sep' => $this->input->post('sep',TRUE),
 		'oct' => $this->input->post('oct',TRUE),
 		'nov' => $this->input->post('nov',TRUE),
 		'dec' => $this->input->post('dec',TRUE),
-		// 'rata_rata' => $this->input->post('rata_rata',TRUE),
+		'rata_rata' => $jumlah,
 		'modify_date' => $now,
 		'modify_by' => $this->session->userdata('full_name',TRUE),
 		'department' => $this->session->userdata('id_users',TRUE),
