@@ -248,6 +248,7 @@ class SasaranMutu_department extends CI_Controller
     {
 		date_default_timezone_set('Asia/Jakarta');
 		$now = date('y-m-d H:i:s');
+		$berapa=0;
         // $this->_rules();
 		$januari =$this->input->post('jan',TRUE);
 		$februari =$this->input->post('feb',TRUE);
@@ -262,8 +263,59 @@ class SasaranMutu_department extends CI_Controller
 		$november =$this->input->post('nov',TRUE);
 		$desember =$this->input->post('dec',TRUE);
 
-		$jumlah = number_format((($januari+$februari+$maret+$april+$mei+$juni+$july+$agustus+$september+$oktober+$november+$desember)/12),3);
+		$bulan_1 = number_format($januari);
+		$bulan_2 = number_format($februari);
+		$bulan_3 = number_format($maret);
+		$bulan_4 = number_format($april);
+		$bulan_5 = number_format($mei);
+		$bulan_6 = number_format($juni);
+		$bulan_7 = number_format($july);
+		$bulan_8 = number_format($agustus);
+		$bulan_9 = number_format($september);
+		$bulan_10 = number_format($oktober);
+		$bulan_11 = number_format($november);
+		$bulan_12 = number_format($desember);
+
+		if($bulan_1 != 0){
+			$berapa++;
+		}
+		if($bulan_2 != 0){
+			$berapa++;
+		}
+		if($bulan_3 != 0){
+			$berapa++;
+		}
+		if($bulan_4 != 0){
+			$berapa++;
+		}
+		if($bulan_5 != 0){
+			$berapa++;
+		}
+		if($bulan_6 != 0){
+			$berapa++;
+		}
+		if($bulan_7 != 0){
+			$berapa++;
+		}
+		if($bulan_8 != 0){
+			$berapa++;
+		}
+		if($bulan_9 != 0){
+			$berapa++;
+		}
+		if($bulan_10 != 0){
+			$berapa++;
+		}
+		if($bulan_11 != 0){
+			$berapa++;
+		}
+		if($bulan_12 != 0){
+			$berapa++;
+		}
+		
+		$jumlah = number_format((($januari+$februari+$maret+$april+$mei+$juni+$july+$agustus+$september+$oktober+$november+$desember)/$berapa),3);
 		// $hasil = $jumlah/12;
+		$berapa=0;
             $data = array(
 		'jan' => $this->input->post('jan',TRUE),
 		'feb' => $this->input->post('feb',TRUE),

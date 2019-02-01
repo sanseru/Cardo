@@ -34,6 +34,16 @@
         <link rel="stylesheet"
               href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
     </head>
+    <style>
+    .skin-blue .main-header .navbar {
+    background-color: #000000;
+}
+.skin-blue .main-header .logo {
+    background-color: #000000;
+    color: #fff;
+    border-bottom: 0 solid transparent;
+}
+    </style>
     <body class="hold-transition skin-blue sidebar-mini">
         <div class="wrapper">
 
@@ -41,9 +51,9 @@
                 <!-- Logo -->
                 <a href="<?php echo base_url() ?>adminlte/index2.html" class="logo">
                     <!-- mini logo for sidebar mini 50x50 pixels -->
-                    <span class="logo-mini"><b>A</b>LT</span>
+                    <span class="logo-mini"><b>Q</b>HSE</span>
                     <!-- logo for regular state and mobile devices -->
-                    <span class="logo-lg"><b>BROCODE</b>LTE</span>
+                    <span class="logo-lg"><b>Q</b>HSE</span>
                 </a>
                 <!-- Header Navbar: style can be found in header.less -->
                 <nav class="navbar navbar-static-top">

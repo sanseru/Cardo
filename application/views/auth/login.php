@@ -3,7 +3,8 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Garuda CRUD Generator</title>
+        <title>QHSE MEDIKAPLAZA</title>
+        <link rel="shortcut icon" href="<?php echo base_url() ?>assets/foto_profil/qhse_en.png ?>">
         <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <!-- Bootstrap 3.3.7 -->
@@ -27,10 +28,16 @@
         <!-- Google Font -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
     </head>
+    <style>
+    .login-page, .register-page {
+    background: #34948c;
+}
+    </style>
     <body class="hold-transition login-page">
         <div class="login-box">
             <div class="login-logo">
-                <a href="<?php echo base_url(); ?>/adminlte/index2.html"><b>Garuda CRUD</b> Generator</a>
+            <img src="<?php echo base_url(); ?>assets/assets_image/MP+ Est.png" alt="Logo" style="width:300px;height:100px;"><br>
+                <a href="<?php echo base_url(); ?>/adminlte/index2.html"><b>QHSE</b> Medikaplaza</a>
             </div>
             <!-- /.login-logo -->
             <div class="login-box-body">
@@ -66,7 +73,7 @@
 
 
                 <!-- /.col -->
-                <div class="row" style="margin-top: 20px;">
+                <!-- <div class="row" style="margin-top: 20px;">
                     <div class="col-xs-12">
                         <div class="callout callout-info">
                             <h4>Level Super Admin</h4>
@@ -81,7 +88,7 @@
                         </div>
                     </div>
 
-                </div>
+                </div> -->
                 </form>
 
 

@@ -44,9 +44,10 @@ class SasaranMutu_department_model extends CI_Model
 	}
 	
 	function json_3() {
-        $this->datatables->select('id_thn,tahun,jan,feb,mar,apr,may,jun,jul,aug,sep,oct,nov,dec');
+        $this->datatables->select('id_thn,tahun');
 		$this->datatables->from('tbl_tahun_qhse');
-        $this->datatables->join('tbl_samutdep', 'tbl_tahun_qhse.id_thn = tbl_samutdep.tahun_samut','left');
+		// $this->datatables->where('department', $this->session->userdata('id_users',TRUE));
+        // $this->datatables->join('tbl_samutdep', 'tbl_tahun_qhse.id_thn = tbl_samutdep.tahun_samut','left');
 		$this->datatables->edit_column('client_v', '<a href="SasaranMutu_department/view_samutdep/$1">$2</a>', 'id_thn, tahun');
 
         //add this line for join

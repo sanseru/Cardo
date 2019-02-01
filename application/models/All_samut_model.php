@@ -20,6 +20,7 @@ class All_samut_model extends CI_Model
         $this->datatables->select('id_samutdept,pihak_kepentingan,kbthn_hrpn,peluang_ancaman,main_proses,sub_proses,sub_sub_proses,input,proses_pdca,quality_assurance,quality_control,output,penerima_output,samut,kpi,pic,jan,feb,mar,apr,may,jun,jul,aug,sep,oct,nov,dec,rata_rata,department,tahun_samut,tahun');
         $this->datatables->from('tbl_samutdep');
 		//add this line for join
+		$this->datatables->where('department', $this->session->userdata('id_users',TRUE));
         $this->datatables->join('tbl_tahun_qhse', 'tbl_samutdep.tahun_samut = tbl_tahun_qhse.id_thn', 'left');		
         //$this->datatables->join('table2', 'tbl_samutdep.field = table2.field');
         return $this->datatables->generate();
