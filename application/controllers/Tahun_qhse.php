@@ -69,7 +69,7 @@ class Tahun_qhse extends CI_Controller
             'button' => 'Create',
             'action' => site_url('tahun_qhse/create_action'),
 	    'id_thn' => set_value('id_thn'),
-	    'Tahun' => set_value('Tahun'),
+	    'tahun' => set_value('tahun'),
 	    'created_date' => set_value('created_date'),
 	    'created_by' => set_value('created_by'),
 	    'created_id' => set_value('created_id'),
