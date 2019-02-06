@@ -10,28 +10,13 @@
         
         <div class="box-body">
         <div style="padding-bottom: 10px;"'>
-        <?php echo anchor(site_url('sasaranmutu_department/create'), '<i class="fa fa-wpforms" aria-hidden="true"></i> Tambah Data', 'class="btn btn-danger btn-sm"'); ?>
-		<?php echo anchor(site_url('sasaranmutu_department/excel'), '<i class="fa fa-file-excel-o" aria-hidden="true"></i> Export Ms Excel', 'class="btn btn-success btn-sm"'); ?></div>
         <table class="table table-bordered table-striped" id="mytable">
             <thead>
                 <tr>
                     <th width="30px">No</th>
-		    <th>Pihak Kepentingan <?php echo $id; ?></th>
-		    <th>Kebutuhan Harapan</th>
-		    <th>Peluang / Ancaman</th>
-		    <th>Key / Main Proses</th>
-		    <th>Sub Proses</th>
-		    <th>Sub Sub Proses</th>
-		    <th>Input</th>
-		    <th>Proses & Siklus PDCA</th>
-		    <th>Quality Assurance</th>
-		    <th>Quality Control</th>
-		    <th>Output</th>
-		    <th>Penerima Output</th>
-		    <th>Sasaran Mutu</th>
-		    <th>KPI</th>
-		    <th>PIC</th>
-		    <th width="200px">Action</th>
+		    <th>Tahun</th>
+
+		    <!-- <th width="200px">Action</th> -->
                 </tr>
             </thead>
 	    
@@ -41,11 +26,9 @@
             </div>
             </div>
     </section>
-
 </div>
 
 
-<input type="hidden" id="id" name="id" value="<?php echo $id; ?>">
 
 
         <script src="<?php echo base_url('assets/js/jquery-1.11.2.min.js') ?>"></script>
@@ -65,12 +48,10 @@
                         "iTotalPages": Math.ceil(oSettings.fnRecordsDisplay() / oSettings._iDisplayLength)
                     };
                 };
-                var detail_id = $('#id').val();
+
                 var t = $("#mytable").dataTable({
                     // "scrollX": t rue,
-                    "scrollX": true,
-                    "scrollY":        '50vh',
-                    "scrollCollapse": true,
+
                     initComplete: function() {
                         var api = this.api();
                         $('#mytable_filter input')
@@ -86,17 +67,19 @@
                     },
                     processing: true,
                     serverSide: true,
-                    ajax: {"url": "../../sasaranmutu_department/json/"+detail_id, "type": "POST"},
+                    ajax: {"url": "Admin_sasaran_mutu/json", "type": "POST"},
                     columns: [
                         {
-                            "data": "id_samutdept",
+                            "data": "id_user_level",
                             "orderable": false
-                        },{"data": "pihak_kepentingan"},{"data": "kbthn_hrpn"},{"data": "peluang_ancaman"},{"data": "main_proses"},{"data": "sub_proses"},{"data": "sub_sub_proses"},{"data": "input"},{"data": "proses_pdca"},{"data": "quality_assurance"},{"data": "quality_control"},{"data": "output"},{"data": "penerima_output"},{"data": "samut"},{"data": "kpi"},{"data": "pic"},
-                        {
-                            "data" : "action",
-                            "orderable": false,
-                            "className" : "text-center"
-                        }
+                        },
+						{"data": "nama_level_v","searchable": false}
+						
+                        // {
+                        //     "data" : "action",
+                        //     "orderable": false,
+                        //     "className" : "text-center"
+                        // }
                     ],
                     order: [[0, 'desc']],
                     rowCallback: function(row, data, iDisplayIndex) {
