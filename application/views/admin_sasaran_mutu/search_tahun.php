@@ -51,7 +51,6 @@
     </section>
 </div>
 
-<!-- <input type="hidden" id="id" name="id" value="<?php echo $id;?>"> -->
 
 
 
