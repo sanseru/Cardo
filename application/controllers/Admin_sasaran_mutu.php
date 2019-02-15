@@ -18,7 +18,7 @@ class Admin_sasaran_mutu extends CI_Controller
     {
 
 		// $this->template->load('template','sasaranmutu_department/tbl_samutdep_list');
-        $this->template->load('template','admin_sasaran_mutu/list');
+        $this->template->load('template','admin_sasaran_mutu/search_tahun');
 		
     } 
     
@@ -32,13 +32,16 @@ class Admin_sasaran_mutu extends CI_Controller
 		$data = array(
 			'id'=>$this->uri->segment(3),
 			);
-		$this->template->load('template','Admin_sasaran_mutu/list_tahun',$data);
+        // $this->template->load('template','Admin_sasaran_mutu/list_tahun',$data);
+		$this->template->load('template','Admin_sasaran_mutu/search_tahun',$data);
+        
 
 	}
 	public function json_2($id) {
 
-        header('Content-Type: application/json');
-        echo $this->Admin_sasaran_mutu_model->json_2($id);
+            header('Content-Type: application/json');
+            echo $this->Admin_sasaran_mutu_model->json_2($id);
+
 	}
 	// public function json_3() {
 
@@ -51,7 +54,8 @@ class Admin_sasaran_mutu extends CI_Controller
 		$data = array(
 			'id'=>$this->uri->segment(3),
 			);
-		$this->template->load('template','sasaranmutu_department/tbl_samutdep_list',$data);
+		$this->template->load('template','sasaranmutu_department/search_tahun',$data);
+		// $this->template->load('template','sasaranmutu_department/tbl_samutdep_list',$data);\
 
 	}
     

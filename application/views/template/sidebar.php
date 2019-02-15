@@ -33,6 +33,7 @@
             // chek is have sub menu
             $this->db->where('is_main_menu',$menu->id_menu);
             $this->db->where('is_aktif','y');
+            
             $submenu = $this->db->get('tbl_menu');
             if($submenu->num_rows()>0){
                 // display sub menu

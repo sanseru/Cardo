@@ -15,6 +15,26 @@ function cmb_dinamis($name,$table,$field,$pk,$selected=null,$order=null){
     return $cmb;  
 }
 
+function cmb_dinamis2($name,$table,$field,$pk,$selected=null,$order=null){
+    $ci = get_instance();
+    $cmb = "<select name='$name' class='form-control'>";
+    if($order){
+        $ci->db->order_by($field,$order);
+    }
+    // $ci->db->order_by($name,$coba);
+    $ci->db->where('id_user_level !=', '2');
+    $ci->db->where('id_user_level !=', '1');
+
+    $data = $ci->db->get($table)->result();
+    foreach ($data as $d){
+        $cmb .="<option value='".$d->$pk."'";
+        $cmb .= $selected==$d->$pk?" selected='selected'":'';
+        $cmb .=">".  strtoupper($d->$field)."</option>";
+    }
+    $cmb .="</select>";
+    return $cmb;  
+}
+
 function select2_dinamis($name,$table,$field,$placeholder){
     $ci = get_instance();
     $select2 = '<select name="'.$name.'" class="form-control select2 select2-hidden-accessible" multiple="" 

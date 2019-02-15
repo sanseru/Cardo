@@ -69,7 +69,7 @@
                 var t = $("#mytable").dataTable({
                     // "scrollX": t rue,
                     "scrollX": true,
-                    "scrollY":        '50vh',
+                    // "scrollY":        '50vh',
                     "scrollCollapse": true,
                     initComplete: function() {
                         var api = this.api();

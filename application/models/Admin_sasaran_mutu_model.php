@@ -35,10 +35,17 @@ class Admin_sasaran_mutu_model extends CI_Model
         $this->datatables->join('tbl_tahun_qhse', 'tbl_samutdep.tahun_samut = tbl_tahun_qhse.id_thn','LEFT');
         $this->datatables->join('tbl_user', 'tbl_samutdep.department = tbl_user.id_users','LEFT');
         $this->datatables->join('tbl_user_level', 'tbl_user.id_users = tbl_user_level.id_user_level','LEFT');
-        //add this line for where        
-        $this->datatables->where('tbl_user.id_user_level',$id);
+        //add this line for where
+        if($id == 0){
+
+        }else{
+            $this->datatables->where('tbl_user.id_user_level',$id);
+
+        }        
         $this->datatables->group_by('tbl_samutdep.tahun_samut');
-        $this->datatables->edit_column('nama_tahun_v', '<a href="SasaranMutu_department/view_samutdep/$1">$2</a>', 'tahun_samut, tahun');
+        // $this->datatables->edit_column('nama_tahun_v', '<a href="SasaranMutu_department/view_samutdep/$1">$2</a>', 'tahun_samut, tahun');
+        $this->datatables->edit_column('nama_tahun_v', '<a href="Admin_sasaran_mutu/view_samutdep/$1">$2</a>', 'tahun_samut, tahun');
+
         //$this->datatables->join('table2', 'tbl_samutdep.field = table2.field');
         return $this->datatables->generate();
     }
