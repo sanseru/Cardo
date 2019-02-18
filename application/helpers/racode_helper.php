@@ -22,9 +22,7 @@ function cmb_dinamis2($name,$table,$field,$pk,$selected=null,$order=null){
         $ci->db->order_by($field,$order);
     }
     // $ci->db->order_by($name,$coba);
-    $ci->db->where('id_user_level !=', '2');
-    $ci->db->where('id_user_level !=', '1');
-
+    $ci->db->where('is_department', 'y');
     $data = $ci->db->get($table)->result();
     foreach ($data as $d){
         $cmb .="<option value='".$d->$pk."'";

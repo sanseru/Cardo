@@ -10,6 +10,7 @@ class Admin_sasaran_mutu extends CI_Controller
         parent::__construct();
         is_login();
         $this->load->model('Admin_sasaran_mutu_model');
+        $this->load->library('encrypt');
         // $this->load->library('form_validation');        
 	$this->load->library('datatables');
     }
@@ -57,9 +58,29 @@ class Admin_sasaran_mutu extends CI_Controller
 		$this->template->load('template','sasaranmutu_department/search_tahun',$data);
 		// $this->template->load('template','sasaranmutu_department/tbl_samutdep_list',$data);\
 
-	}
+    }
     
+    public function searching(){
+        // alert($this->input->post('id_thn'));
+		$data = array(
+            'id_thn'=>$this->input->post('id_thn'),
+			'id_users'=>$this->input->post('id_users'),
+            
+			);
+		$this->template->load('template','Admin_sasaran_mutu/searching',$data);
+		// $this->template->load('template','sasaranmutu_department/tbl_samutdep_list',$data);\
 
+        // header('Content-Type: application/json');
+        // echo $this->Admin_sasaran_mutu_model->json_3();
+
+    }
+    
+    public function json_3() {
+
+        header('Content-Type: application/json');
+        echo $this->Admin_sasaran_mutu_model->json_3();
+
+    }
 }
 
 /* End of file SasaranMutu_department.php */

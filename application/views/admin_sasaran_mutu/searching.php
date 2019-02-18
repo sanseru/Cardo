@@ -10,13 +10,11 @@
         
         <div class="box-body">
         <div style="padding-bottom: 10px;"'>
-        <?php echo anchor(site_url('sasaranmutu_department/create'), '<i class="fa fa-wpforms" aria-hidden="true"></i> Tambah Data', 'class="btn btn-danger btn-sm"'); ?>
-		<?php echo anchor(site_url('sasaranmutu_department/excel'), '<i class="fa fa-file-excel-o" aria-hidden="true"></i> Export Ms Excel', 'class="btn btn-success btn-sm"'); ?></div>
         <table class="table table-bordered table-striped" id="mytable">
             <thead>
                 <tr>
                     <th width="30px">No</th>
-		    <th>Pihak Kepentingan <?php echo $id; ?></th>
+                    <th>Pihak Kepentingan</th>
 		    <th>Kebutuhan Harapan</th>
 		    <th>Peluang / Ancaman</th>
 		    <th>Key / Main Proses</th>
@@ -31,7 +29,7 @@
 		    <th>Sasaran Mutu</th>
 		    <th>KPI</th>
 		    <th>PIC</th>
-		    <th width="200px">Action</th>
+		    <!-- <th width="200px">Action</th> -->
                 </tr>
             </thead>
 	    
@@ -41,11 +39,11 @@
             </div>
             </div>
     </section>
-
 </div>
 
 
-<input type="hidden" id="id" name="id" value="<?php echo $id; ?>">
+<input type="hidden" id="id" name="id" value="<?php echo $id_thn; ?>">
+<input type="hidden" id="id2" name="id2" value="<?php echo $id_users; ?>">
 
 
         <script src="<?php echo base_url('assets/js/jquery-1.11.2.min.js') ?>"></script>
@@ -65,12 +63,14 @@
                         "iTotalPages": Math.ceil(oSettings.fnRecordsDisplay() / oSettings._iDisplayLength)
                     };
                 };
-                var detail_id = $('#id').val();
+                // var id_thn = <?php $id_thn?>;
+                // var id_users =  <?php $id_users?>;
+                var id_thn = $('#id').val();
+                var id_users = $('#id2').val();
+
                 var t = $("#mytable").dataTable({
                     // "scrollX": t rue,
-                    "scrollX": true,
-                    // "scrollY":        '50vh',
-                    "scrollCollapse": true,
+
                     initComplete: function() {
                         var api = this.api();
                         $('#mytable_filter input')
@@ -86,17 +86,33 @@
                     },
                     processing: true,
                     serverSide: true,
-                    ajax: {"url": "../../sasaranmutu_department/json/"+detail_id,  "type": "POST"},
+                    ajax: {"url": "../Admin_sasaran_mutu/json_3","data" : {"id_thn": id_thn,"id_users":id_users}, "type": "POST"},
                     columns: [
                         {
                             "data": "id_samutdept",
                             "orderable": false
-                        },{"data": "pihak_kepentingan"},{"data": "kbthn_hrpn"},{"data": "peluang_ancaman"},{"data": "main_proses"},{"data": "sub_proses"},{"data": "sub_sub_proses"},{"data": "input"},{"data": "proses_pdca"},{"data": "quality_assurance"},{"data": "quality_control"},{"data": "output"},{"data": "penerima_output"},{"data": "samut"},{"data": "kpi"},{"data": "pic"},
-                        {
-                            "data" : "action",
-                            "orderable": false,
-                            "className" : "text-center"
-                        }
+                        },
+                        {"data": "pihak_kepentingan"},
+                        {"data": "kbthn_hrpn"},
+                        {"data": "peluang_ancaman"},
+                        {"data": "main_proses"},
+                        {"data": "sub_proses"},
+                        {"data": "sub_sub_proses"},
+                        {"data": "input"},
+                        {"data": "proses_pdca"},
+                        {"data": "quality_assurance"},
+                        {"data": "quality_control"},
+                        {"data": "output"},
+                        {"data": "penerima_output"},
+                        {"data": "samut"},
+                        {"data": "kpi"},
+                        {"data": "pic"},
+
+                        // {
+                        //     "data" : "action",
+                        //     "orderable": false,
+                        //     "className" : "text-center"
+                        // }
                     ],
                     order: [[0, 'desc']],
                     rowCallback: function(row, data, iDisplayIndex) {

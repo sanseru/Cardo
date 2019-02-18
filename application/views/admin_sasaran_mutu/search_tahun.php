@@ -16,7 +16,9 @@
                             </div>
                             <div class="col-xs-4">
 
-                            <form action="<?php echo site_url('tahun_qhse/index'); ?>" class="form-inline" method="get">
+                            <!-- <form action="<?php echo site_url('admin_sasaran_mutu/'.str_replace(array('=','+','/'), array('-','_','`'),$this->encrypt->encode('view_tahunnya')). ''); ?>" class="form-inline" method="get"> -->
+                            <form action="<?php echo site_url('admin_sasaran_mutu/searching'); ?>" method="post">
+                            
                             <!-- <div class="input-group"><input type="text" class="form-control" name="q"></div> -->
                             <div class="input-group">
 
@@ -26,7 +28,7 @@
                     <div class="input-group">
                         <!-- <input type="text" class="form-control" name="q"> -->
                         <label>Department</label>
-                        <?php echo cmb_dinamis2('id_user_level', 'tbl_user_level', 'nama_level', 'id_user_level') ?>
+                        <?php echo cmb_dinamis2('id_users', 'tbl_user', 'full_name', 'id_users') ?>
                         <span class="input-group-btn">
 
                         </span>

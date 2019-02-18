@@ -55,7 +55,8 @@ class User extends CI_Controller
 	    'password'      => set_value('password'),
 	    'images'        => set_value('images'),
 	    'id_user_level' => set_value('id_user_level'),
-	    'is_aktif'      => set_value('is_aktif'),
+        'is_aktif'      => set_value('is_aktif'),
+	    'is_department'      => set_value('is_department'),        
 	);
         $this->template->load('template','user/tbl_user_form', $data);
     }
@@ -78,7 +79,9 @@ class User extends CI_Controller
 		'password'      => $hashPassword,
 		'images'        => $foto['file_name'],
 		'id_user_level' => $this->input->post('id_user_level',TRUE),
-		'is_aktif'      => $this->input->post('is_aktif',TRUE),
+        'is_aktif'      => $this->input->post('is_aktif',TRUE),
+		'is_department'      => $this->input->post('is_department',TRUE),
+        
 	    );
 
             $this->User_model->insert($data);
@@ -101,7 +104,9 @@ class User extends CI_Controller
 		'password'      => set_value('password', $row->password),
 		'images'        => set_value('images', $row->images),
 		'id_user_level' => set_value('id_user_level', $row->id_user_level),
-		'is_aktif'      => set_value('is_aktif', $row->is_aktif),
+        'is_aktif'      => set_value('is_aktif', $row->is_aktif),
+		'is_department'      => set_value('is_department', $row->is_department),
+        
 	    );
             $this->template->load('template','user/tbl_user_form', $data);
         } else {
@@ -122,14 +127,18 @@ class User extends CI_Controller
 		'full_name'     => $this->input->post('full_name',TRUE),
 		'email'         => $this->input->post('email',TRUE),
 		'id_user_level' => $this->input->post('id_user_level',TRUE),
-		'is_aktif'      => $this->input->post('is_aktif',TRUE));
+        'is_aktif'      => $this->input->post('is_aktif',TRUE),
+		'is_department' => $this->input->post('is_department',TRUE));
+        
             }else{
                 $data = array(
 		'full_name'     => $this->input->post('full_name',TRUE),
 		'email'         => $this->input->post('email',TRUE),
                 'images'        =>$foto['file_name'],
 		'id_user_level' => $this->input->post('id_user_level',TRUE),
-		'is_aktif'      => $this->input->post('is_aktif',TRUE));
+        'is_aktif'      => $this->input->post('is_aktif',TRUE),
+		'is_department'      => $this->input->post('is_department',TRUE));
+        
                 
                 // ubah foto profil yang aktif
                 $this->session->set_userdata('images',$foto['file_name']);

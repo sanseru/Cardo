@@ -50,6 +50,19 @@ class Admin_sasaran_mutu_model extends CI_Model
         return $this->datatables->generate();
     }
 
+    function json_3() {
+        $this->datatables->select('id_samutdept,pihak_kepentingan,kbthn_hrpn,peluang_ancaman,main_proses,sub_proses,sub_sub_proses,input,proses_pdca,quality_assurance,quality_control,output,penerima_output,samut,kpi,pic,jan,feb,mar,apr,may,jun,jul,aug,sep,oct,nov,dec,rata_rata,created_date,created_by,modify_date,modify_by');
+        $this->datatables->from('tbl_samutdep');
+        
+		$this->datatables->where('tahun_samut', $this->input->post('id_thn'));
+		$this->datatables->where('department', $this->input->post('id_users'));
+
+        //add this line for join
+        //$this->datatables->join('table2', 'tbl_samutdep.field = table2.field');
+        return $this->datatables->generate();
+	}
+    
+
 }
 
 /* End of file All_samut_model.php */

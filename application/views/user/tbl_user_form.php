@@ -30,6 +30,9 @@
                     <tr><td width='200'>Status Aktif <?php echo form_error('is_aktif') ?></td><td>
                             <?php echo form_dropdown('is_aktif', array('y' => 'AKTIF', 'n' => 'TIDAK AKTIF'), $is_aktif, array('class' => 'form-control')); ?>
                             <!--<input type="text" class="form-control" name="is_aktif" id="is_aktif" placeholder="Is Aktif" value="<?php echo $is_aktif; ?>" />--></td></tr>
+                    <tr><td width='200'>Status Department <?php echo form_error('is_aktif') ?></td><td>
+                            <?php echo form_dropdown('is_department', array('y' => 'YA', 'n' => 'TIDAK'), $is_department, array('class' => 'form-control')); ?>
+                            <!--<input type="text" class="form-control" name="is_aktif" id="is_aktif" placeholder="Is Aktif" value="<?php echo $is_department; ?>" />--></td></tr>
                     <tr><td width='200'>Foto Profile <?php echo form_error('images') ?></td><td> <input type="file" name="images"></td></tr>
                     <tr><td></td><td><input type="hidden" name="id_users" value="<?php echo $id_users; ?>" /> 
                             <button type="submit" class="btn btn-danger"><i class="fa fa-floppy-o"></i> <?php echo $button ?></button> 
