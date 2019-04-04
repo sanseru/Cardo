@@ -28,7 +28,7 @@
 	    <tr><td width='200'>Output <?php echo form_error('output') ?></td><td><input type="text" class="form-control" name="output" id="output" placeholder="Output" value="<?php echo $output; ?>" /></td></tr>
 	    <tr><td width='200'>Penerima Output <?php echo form_error('penerima_output') ?></td><td><input type="text" class="form-control" name="penerima_output" id="penerima_output" placeholder="Penerima Output" value="<?php echo $penerima_output; ?>"/></td></tr>
 	    <tr><td width='200'>Sasaran Mutu <?php echo form_error('samut') ?></td><td><input type="text" class="form-control" name="samut" id="samut" placeholder="Samut" value="<?php echo $samut; ?>"/></td></tr>
-	    <tr><td width='20'>KPI <?php echo form_error('kpi') ?></td><td><input type="text" class="form-control" name="kpi" id="kpi" placeholder="Kpi" value="<?php echo $kpi; ?>" /></td></tr>
+	    <tr><td width='20'>KPI (Masukan Angka Persen tanpa %) <?php echo form_error('kpi') ?></td><td><input type="number" class="form-control" name="kpi" id="kpi" placeholder="Kpi" value="<?php echo $kpi; ?>" /></td></tr>
 	    <tr><td width='20'>Pic <?php echo form_error('pic') ?></td><td><input type="text" class="form-control" name="pic" id="pic" placeholder="Pic" value="<?php echo $pic; ?>" /></td></tr>
 		<tr><td></td><td><input type="hidden" name="id_samutdept" value="<?php echo $id_samutdept; ?>" /> 
 	    <button type="submit" class="btn btn-danger"><i class="fa fa-floppy-o"></i> <?php echo $button ?></button> 
